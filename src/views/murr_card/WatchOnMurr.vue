@@ -47,6 +47,8 @@
 
 </template>
 
+<a button class="previous" onclick="javascript:history.back(); return false;">Назад</a>
+
 <script>
 
   import axios from 'axios'
@@ -116,5 +118,20 @@
     white-space: pre-wrap;
     border-radius: 5px;
   }
+
+a:hover {
+    background-color: #ad00ff;
+    color: black;
+}
+
+.previous {
+    background-color: #93a1a9;
+    color: #13242d;
+    position: fixed; 
+    left: 10px;
+    top: 2%;
+    padding: 10px;
+    border-radius: 5px;
+}
 
 </style>
