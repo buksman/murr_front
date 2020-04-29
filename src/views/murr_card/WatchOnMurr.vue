@@ -44,10 +44,30 @@
       </div>
     </div>
   </div>
+  
+  <progress value="0">
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+</progress>
 
 </template>
 
 <a button class="previous" onclick="javascript:history.back(); return false;">Назад</a>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script>
+    $(function() {
+        $(window).on("scroll resize", function() {
+            var o = $(window).scrollTop() / ($(document).height() - $(window).height());
+            $(".progress-bar").css({
+                "width": (100 * o | 0) + "%"
+            });
+            $('progress')[0].value = o;
+        })
+    });
+</script>
 
 <script>
 
@@ -132,6 +152,47 @@ a:hover {
     top: 2%;
     padding: 10px;
     border-radius: 5px;
+}
+
+progress{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:5px;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    border:none;
+    background:transparent;
+    color:#ad00ff;
+}
+progress::-webkit-progress-bar{
+    background:transparent;
+    border-radius:5px;
+}
+progress::-webkit-progress-value{
+    background:#ad00ff;
+    border-radius:5px;
+}
+progress::-moz-progress-bar{
+    background:#ad00ff;
+    border-radius:5px;
+}
+.progress-container{
+    width:100%;
+    background:transparent;
+    position:fixed;
+    top:0;
+    left:0;
+    height:5px;
+    display:block;
+}
+.progress-bar{
+    background:#ad00ff;
+    width:0%;
+    display:block;
+    height:inherit;
 }
 
 </style>
